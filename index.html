@@ -6,7 +6,33 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>core-web Example</title>
 
-	<script src="./bundle.js"></script>
+	<!-- Ensure that older Safari doesn't load both bundles -->
+	<script nomodule>
+		(function () {
+			try {
+				var check = document.createElement('script');
+				if (!('noModule' in check) && 'onbeforeload' in check) {
+					var support = false;
+					document.addEventListener('beforeload', function (e) {
+						if (e.target === check) {
+							support = true;
+						} else if (!e.target.hasAttribute('nomodule') || !support) {
+							return;
+						}
+						e.preventDefault();
+					}, true);
+					check.type = 'module';
+					check.src = '.';
+					document.head.appendChild(check);
+					check.remove();
+				}
+			} catch (_) {
+			}
+		}());
+	</script>
+
+	<script type="module" src="./bundle.modules.js"></script>
+	<script nomodule src="./bundle.nomodules.js"></script>
 </head>
 <body>
 	loading...
