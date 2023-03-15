@@ -1,5 +1,7 @@
 # core-web example
 
+[See the migration](https://github.com/mrhenry/core-web-example-script-tag/pull/1)
+
 - uses `script type="module"` vs. `script nomodule`
 - ensures browser support even when you have no access to a server-side process where you can detect user agents.
 
