@@ -20,6 +20,7 @@
   "dependencies": {
     "@babel/core": "^7.14.8",
     "@babel/preset-env": "^7.14.8",
+    "@mrhenry/babel-plugin-core-web": "^1.0.0",
     "babel-loader": "^9.0.0",
     "core-js": "^3.16.0",
     "webpack": "^5.47.1",
